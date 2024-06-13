@@ -1,4 +1,4 @@
-import { Actor, CollisionType, Color, Engine, Keys, Resource, SpriteSheet, Vector} from "excalibur";
+import { Actor, Animation, CollisionType, Color, Engine, Keys, Resource, SpriteSheet, Vector, vec} from "excalibur";
 import { Resources } from "../resources";
 
 export class Player extends Actor {
@@ -20,19 +20,42 @@ export class Player extends Actor {
 
     onInitialize(engine: Engine<any>): void {
         // Configurar sprite do Player
-        const PlayerSpriteSheet = SpriteSheet.fromImageSource({
+        const playerSpriteSheet = SpriteSheet.fromImageSource({
             image: Resources.PlayerSpriteSheet,
             grid: {
-                spriteWidth: 16,
-                spriteHeight: 32,
+                spriteWidth: 32,
+                spriteHeight: 64,
+
                 columns:56,
                 rows: 20
             }, 
             spacing: {
-                
+                originOffset: {
+                    y: 4
+                }
             }
 
         })
+
+        // Criar as animações
+        const duracaoFrameAmicao = 70
+
+        // Animações Idle
+        // Idle Esquerda
+        const leftIdle = new Animation ({
+            frames: [
+                { graphic: playerSpriteSheet.getSprite(12, 1) },
+                { graphic: playerSpriteSheet.getSprite(13, 1) },
+                { graphic: playerSpriteSheet.getSprite(14, 1) },
+                { graphic: playerSpriteSheet.getSprite(15, 1) },
+                { graphic: playerSpriteSheet.getSprite(16, 1) },
+                { graphic: playerSpriteSheet.getSprite(17, 1) }
+            ],
+            frameDuration: duracaoFrameAmicao
+        })
+        this.graphics.add("left-idle", leftIdle)
+
+        this.graphics.use("left-idle")
         
         // Configurar player para monitorar evento "hold" -> segurar tecla
         engine.input.keyboard.on("hold", (event) => {
