@@ -1,4 +1,5 @@
-import { Actor, CollisionType, Color, Engine, Keys, vec } from "excalibur";
+import { Actor, CollisionType, Color, Engine, Keys, Resource, SpriteSheet, Vector} from "excalibur";
+import { Resources } from "../resources";
 
 export class Player extends Actor {
     // Propriedades do player
@@ -6,9 +7,9 @@ export class Player extends Actor {
     
     
     // Configuração do Player
-    constructor() {
+    constructor(posicao: Vector) {
         super({
-            pos: vec(600, 520),
+            pos: posicao,
             width: 32,
             height: 32,
             name: "Jogador",
@@ -18,6 +19,21 @@ export class Player extends Actor {
     }
 
     onInitialize(engine: Engine<any>): void {
+        // Configurar sprite do Player
+        const PlayerSpriteSheet = SpriteSheet.fromImageSource({
+            image: Resources.PlayerSpriteSheet,
+            grid: {
+                spriteWidth: 16,
+                spriteHeight: 32,
+                columns:56,
+                rows: 20
+            }, 
+            spacing: {
+                
+            }
+
+        })
+        
         // Configurar player para monitorar evento "hold" -> segurar tecla
         engine.input.keyboard.on("hold", (event) => {
             // Detectar qual tecla está pressionada
