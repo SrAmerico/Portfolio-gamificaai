@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="29" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="19">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="29" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="23">
  <tileset firstgid="1" source="tileset_paredes.tsx"/>
  <tileset firstgid="8285" source="tileset_generic.tsx"/>
  <tileset firstgid="9533" source="tileset_estoque.tsx"/>
@@ -95,9 +95,9 @@
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,8748,0,0,0,0,0,9024,9025,0,0,0,0,0,0,0,9024,9025,0,0,0,0,0,8748,0,0,0,
-0,0,0,8764,0,0,0,0,0,9040,9041,0,0,0,0,0,0,0,9040,9041,0,0,0,0,0,8764,0,0,0,
-0,0,0,8780,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8780,0,0,0,
+0,0,0,8748,0,10449,10450,10451,10452,9024,9025,10541,10542,10543,10544,10541,10542,10543,9024,9025,10449,10450,10451,10452,0,8748,0,0,0,
+0,0,0,8764,0,10465,10466,10467,10468,9040,9041,10557,10558,10559,10560,10557,10558,10559,9040,9041,10465,10466,10467,10468,0,8764,0,0,0,
+0,0,0,8780,0,10481,10482,10483,10484,0,0,10573,10574,10575,10576,10573,10574,10575,0,0,10481,10482,10483,10484,0,8780,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,10500,10501,0,0,0,0,0,10500,10501,0,0,0,0,0,10500,10501,0,0,0,0,0,0,0,0,0,
 0,0,0,0,10516,10517,8386,8387,8388,8610,0,10516,10517,8386,8387,8388,8610,0,10516,10517,8386,8387,8388,8610,0,0,0,0,0,
@@ -171,6 +171,9 @@
   <object id="6" name="vaso_planta" x="102.333" y="120" width="19.3333" height="21.3333"/>
   <object id="7" name="vaso_planta" x="806.333" y="120" width="19.3333" height="21.3333"/>
   <object id="8" name="gavetas_stand" x="735.879" y="237.455" width="31.8788" height="38.606"/>
+  <object id="19" name="livros_stand_c" x="639.546" y="76.1217" width="128.545" height="64.9393"/>
+  <object id="21" name="livros_stand_b" x="352.212" y="68.1217" width="221.879" height="77.2727"/>
+  <object id="22" name="livros_stand_a" x="159.879" y="76.1217" width="128.212" height="66.2727"/>
   <object id="9" name="gavetas_stand" x="512.102" y="237.364" width="31.8788" height="38.606"/>
   <object id="10" name="gavetas_stand" x="288.061" y="237.197" width="31.8788" height="38.606"/>
   <object id="11" name="pc_stand" x="137.879" y="233.742" width="43.8788" height="50.0605"/>

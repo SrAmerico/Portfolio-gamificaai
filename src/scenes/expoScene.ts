@@ -13,9 +13,18 @@ export class expoScene extends Scene {
     }
 
     onInitialize(engine: Engine<any>): void {
-        // Ativar o modo de debug
+        // Ativar o modo de Debug
         engine.toggleDebug()
 
+        // Carregar musica de fundo (BGM) - Background Music
+        // let musicaFundo = Resources.RitmadaBGM
+        // let musicaFundo = Resources.HeManBGM
+        let musicaFundo = Resources.HinoTimaoBGM
+        
+        // Configurar a musica e executar
+        musicaFundo.loop = true
+        musicaFundo.play(0.5)
+        
         // Carregar o mapa
         let tiledMap = Resources.Mapa
 
@@ -31,9 +40,9 @@ export class expoScene extends Scene {
         // Definir zoom da camera para aumentar um pouco a visualização
         this.camera.zoom = 1.4
 
-        //Carregar spawn point do player
+        // Carregar spawn point do player
         let spawnPoint = tiledMap.getObjectsByName("player_spawn")[0]
-
+        
         // Criação e configuração do Player
         let jogador = new Player(vec(spawnPoint.x + offsetX, spawnPoint.y + offsetY))
 
@@ -48,23 +57,23 @@ export class expoScene extends Scene {
         let npcSpawnPointB = tiledMap.getObjectsByName("npc_b")[0]
         let npcSpawnPointC = tiledMap.getObjectsByName("npc_c")[0]
 
-        //Configurar NPCs
+        // Configurar NPCs
         let npcA = new Npc(
             vec(npcSpawnPointA.x + offsetX, npcSpawnPointA.y + offsetY),
-            Color.Green,
-            "NpcA"
-        )
-        let npcB = new Npc(
-            vec(npcSpawnPointB.x + offsetX, npcSpawnPointB.y + offsetY),
-            Color.Blue,
-            "NpcB"
-        )
-        let npcC = new Npc(
-            vec(npcSpawnPointC.x + offsetX, npcSpawnPointC.y + offsetY),
-            Color.Black,
-            "NpcC"
+            npcSpawnPointA.tiledObject.name!
         )
 
+        let npcB = new Npc(
+            vec(npcSpawnPointB.x + offsetX, npcSpawnPointB.y + offsetY),
+            npcSpawnPointB.tiledObject.name!
+        )
+
+        let npcC = new Npc(
+            vec(npcSpawnPointC.x + offsetX, npcSpawnPointC.y + offsetY),
+            npcSpawnPointC.tiledObject.name!
+        )
+
+        // Adicionar os NPCs
         this.add(npcA)
         this.add(npcB)
         this.add(npcC)
